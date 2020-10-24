@@ -76,91 +76,96 @@ let techs = [
 export default function Home() {
   return (
     <Fragment>
-      <main tw="max-w-screen-xl mx-auto px-8">
-        <div tw="min-h-screen py-32 text-center flex justify-center items-center">
-          <div>
+      <div tw="bg-gray-900 font-mono">
+        <main tw="max-w-screen-xl mx-auto px-4 md:px-8">
+          <div tw="min-h-screen py-32 text-center flex justify-center items-center">
+            <div>
+              <img
+                src="/images/joselandero.jpg"
+                alt="This is my profile picture"
+                css={[
+                  tw`h-32 w-32 object-cover object-top rounded-lg mx-auto`,
+                  css`
+                    box-shadow: -8px 8px 0 ${theme`colors.green.400`};
+                  `,
+                ]}
+              />
+              <div tw="mt-12 flex space-x-8 justify-center">
+                {networks.map((network) => (
+                  <a href={network.href} target="_blank" key={network.href}>
+                    <Icon
+                      path={network.icon}
+                      size={1.5}
+                      tw="text-white hover:text-green-400"
+                    />
+                  </a>
+                ))}
+              </div>
+              <h1 tw="mt-12 text-green-300 font-bold text-3xl md:text-4xl">
+                Hi, I'm{' '}
+                <span
+                  css={[
+                    css`
+                      position: relative;
+                      margin: 0 0.5rem;
+                      &:before {
+                        content: '';
+                        position: absolute;
+                        height: 33%;
+                        left: -5px;
+                        right: -5px;
+                        bottom: 0;
+                        z-index: 0;
+                        background: ${theme`colors.gray.700`};
+                      }
+                    `,
+                    tw`inline-block mx-auto md:(inline mx-0)`,
+                  ]}
+                >
+                  <span tw="relative">José Landero</span>
+                </span>
+              </h1>
+              <h2 tw="mt-4 text-green-200 font-bold text-2xl md:text-3xl">
+                And I promise a proper website will be here{' '}
+                <span tw="line-through">(someday)</span>
+              </h2>
+              <p tw="mt-16 mb-12 text-xl md:text-2xl text-gray-100">
+                Meanwhile, here are some things I'd worked with:
+              </p>
+              <div tw="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-16 justify-center">
+                {techs.map((tech) => (
+                  <div tw="space-y-4" key={tech.name}>
+                    <Icon
+                      path={tech.icon}
+                      size={2}
+                      css={[tw`mx-auto`, tech.iconColor]}
+                    />
+                    <div tw="text-gray-400 text-xl">{tech.name}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div tw="mt-64">
+            <p tw="text-center text-gray-100 text-lg mb-12">
+              Thanks for scrolling, here's a cute cat :)
+            </p>
             <img
-              src="/images/joselandero.jpg"
-              alt="This is my profile picture"
+              src="https://cataas.com/cat?filter=blur"
+              alt="The cutest cat in world"
               css={[
-                tw`h-32 w-32 object-cover object-top rounded-lg mx-auto`,
+                tw`mx-auto w-64 rounded`,
                 css`
                   box-shadow: -8px 8px 0 ${theme`colors.green.400`};
                 `,
               ]}
             />
-            <div tw="mt-12 flex space-x-8 justify-center">
-              {networks.map((network) => (
-                <a href={network.href} target="_blank" key={network.href}>
-                  <Icon
-                    path={network.icon}
-                    size={1.5}
-                    tw="text-white hover:text-green-400"
-                  />
-                </a>
-              ))}
-            </div>
-            <h1 tw="mt-12 text-green-300 font-bold text-4xl">
-              Hi, I'm{' '}
-              <span
-                css={css`
-                  position: relative;
-                  margin: 0 0.5rem;
-                  &:before {
-                    content: '';
-                    position: absolute;
-                    height: 33%;
-                    left: -5px;
-                    right: -5px;
-                    bottom: 0;
-                    z-index: 0;
-                    background: ${theme`colors.gray.700`};
-                  }
-                `}
-              >
-                <span tw="relative">José Landero</span>
-              </span>
-            </h1>
-            <h2 tw="mt-2 text-green-200 font-bold text-3xl">
-              And I promise a proper website will be here{' '}
-              <span tw="line-through">(someday)</span>
-            </h2>
-            <p tw="mt-16 mb-12 text-2xl text-gray-100">
-              Meanwhile, here are some things I'd worked with:
-            </p>
-            <div tw="flex flex-wrap space-x-16 justify-center">
-              {techs.map((tech) => (
-                <div tw="space-y-4" key={tech.name}>
-                  <Icon
-                    path={tech.icon}
-                    size={2}
-                    css={[tw`mx-auto`, tech.iconColor]}
-                  />
-                  <div tw="text-gray-400 text-xl">{tech.name}</div>
-                </div>
-              ))}
-            </div>
           </div>
-        </div>
-        <div tw="mt-64">
-          <p tw="text-center text-gray-100 text-lg mb-12">
-            Thanks for scrolling, here's a cute cat :)
-          </p>
-          <img
-            src="https://cataas.com/cat?filter=blur"
-            alt="The cutest cat in world"
-            css={[
-              tw`mx-auto w-64 rounded`,
-              css`
-                box-shadow: -8px 8px 0 ${theme`colors.green.400`};
-              `,
-            ]}
-          />
-        </div>
-      </main>
-      <footer tw="mt-16 p-4 text-center text-gray-100">
-        <p>Made with ❤️ in México 🇲🇽 🌮</p>
-      </footer>
+        </main>
+        <footer tw="mt-16 p-4 text-center text-gray-100">
+          <p>Made with ❤️ in México 🇲🇽 🌮</p>
+        </footer>
+      </div>
     </Fragment>
   );
 }

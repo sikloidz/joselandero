@@ -8,17 +8,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>Jose Landero</title>
         <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          as="style"
-          href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700"
           rel="stylesheet"
         />
       </Head>

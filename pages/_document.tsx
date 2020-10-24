@@ -1,15 +1,15 @@
-import { extractCritical } from '@emotion/server';
+import { extractCritical } from 'emotion-server';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 type DocumentProps = {
-  ids: any[];
-  css: any;
+  ids: string[];
+  css: string;
 };
 
 export default class MyDocument extends Document<DocumentProps> {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
-    const page = ctx.renderPage();
+    const page = await ctx.renderPage();
     const styles = extractCritical(page.html);
 
     return { ...initialProps, ...page, ...styles };

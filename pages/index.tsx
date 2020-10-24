@@ -154,7 +154,7 @@ export default function Home() {
               src="https://cataas.com/cat?filter=blur"
               alt="The cutest cat in world"
               css={[
-                tw`mx-auto w-64 rounded`,
+                tw`mx-auto w-64 h-64 object-cover rounded`,
                 css`
                   box-shadow: -8px 8px 0 ${theme`colors.green.400`};
                 `,

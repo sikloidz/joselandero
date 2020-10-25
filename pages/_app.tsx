@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import Head from 'next/head';
-import { GlobalStyles as TailwindPreflight } from 'twin.macro';
+import { Global } from '@emotion/core';
+import { GlobalStyles as TailwindPreflight, theme, css } from 'twin.macro';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -13,6 +14,14 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <TailwindPreflight />
+      <Global
+        styles={css`
+          body {
+            background-color: ${theme`colors.gray.900`};
+            font-family: 'Roboto Mono';
+          }
+        `}
+      />
       <Component {...pageProps} />
     </Fragment>
   );

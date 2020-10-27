@@ -1,0 +1,10 @@
+.textMarker::before {
+  content: '';
+  height: 33%;
+  left: -5px;
+  right: -5px;
+  z-index: 0;
+  @apply absolute;
+  @apply bottom-0;
+  @apply bg-gray-700;
+}

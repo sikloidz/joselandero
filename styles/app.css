@@ -1,0 +1,18 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-900;
+    @apply font-mono bottom-0;
+  }
+}
+
+@layer utilities {
+  .shadow-solid-green-400 {
+    box-shadow: -8px 8px 0 theme('colors.green.400');
+  }
+}

@@ -14,7 +14,7 @@ import Icon from '@mdi/react';
 import { Fragment } from 'react';
 import classNames from 'classnames';
 
-import styles from '../styles/text-marker.module.css';
+import styles from '@styles/text-marker.module.css';
 
 let networks = [
   {

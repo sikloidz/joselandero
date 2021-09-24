@@ -8,9 +8,21 @@ export default function Car() {
   const [showConfetti, setShowConfetti] = useState(false);
   const [confettiKey, setConfettiKey] = useState<number>(null);
   const dateNode = useRef<HTMLHeadingElement>();
+  const currentInterval = useRef<number>(null);
+
+  const currentTime = new Date();
+  const carIsMine = isAfter(currentTime, targetTime);
 
   useEffect(() => {
-    setInterval(() => {
+    if (carIsMine) {
+      if (currentInterval.current) {
+        window.clearInterval(currentInterval.current);
+      }
+
+      return;
+    }
+
+    currentInterval.current = window.setInterval(() => {
       const duration = intervalToDuration({
         start: new Date(),
         end: targetTime,
@@ -22,11 +34,9 @@ export default function Car() {
         duration.seconds.toString().padStart(2, '0'),
       ].join(':');
     }, 1000);
-  }, []);
+  }, [carIsMine]);
 
-  const currentTime = new Date();
-
-  if (isAfter(currentTime, targetTime)) {
+  if (carIsMine) {
     return (
       <div className="w-screen h-screen flex items-center justify-center">
         <h1 className="text-white text-6xl font-bold text-center">

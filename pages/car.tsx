@@ -36,16 +36,6 @@ export default function Car() {
     }, 1000);
   }, [carIsMine]);
 
-  if (carIsMine) {
-    return (
-      <div className="w-screen h-screen flex items-center justify-center">
-        <h1 className="text-white text-6xl font-bold text-center">
-          Ya tenemos carrito!!! 🎉
-        </h1>
-      </div>
-    );
-  }
-
   const duration = intervalToDuration({
     start: currentTime,
     end: targetTime,
@@ -59,21 +49,30 @@ export default function Car() {
         run={showConfetti}
         recycle={false}
       />
-      <div className="w-screen h-screen flex items-center justify-center">
+      <div className="w-screen h-screen flex items-center justify-center p-4">
         <div className="text-center">
-          <h2 className="text-white text-opacity-75 text-center pb-4">
-            🙀 El carrito llega en
-          </h2>
-          <h1
-            ref={dateNode}
-            className="text-white text-6xl font-bold text-center"
-          >
-            {[
-              duration.hours.toString().padStart(2, '0'),
-              duration.minutes.toString().padStart(2, '0'),
-              duration.seconds.toString().padStart(2, '0'),
-            ].join(':')}
-          </h1>
+          {carIsMine ? (
+            <h1 className="text-white text-6xl font-bold text-center">
+              Ya tenemos carrito!!! 🎉
+            </h1>
+          ) : (
+            <>
+              <h2 className="text-white text-opacity-75 text-center pb-4">
+                🙀 El carrito llega en
+              </h2>
+              <h1
+                ref={dateNode}
+                className="text-white text-6xl font-bold text-center"
+              >
+                {[
+                  duration.hours.toString().padStart(2, '0'),
+                  duration.minutes.toString().padStart(2, '0'),
+                  duration.seconds.toString().padStart(2, '0'),
+                ].join(':')}
+              </h1>
+            </>
+          )}
+
           <div className="pt-8">
             <button
               className="bg-gray-100 rounded-md py-4 px-6 text-gray-800 text-2xl font-bold border-2 border-gray-200"

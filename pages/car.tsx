@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { isAfter, parseISO, intervalToDuration } from 'date-fns';
 import Confetti from 'react-confetti';
+import Image from 'next/image';
+
+// @ts-ignore
+import car from '../public/car_sm.jpg';
 
 const targetTime = parseISO('2021-09-24T11:00:00-05:00');
 
@@ -52,9 +56,21 @@ export default function Car() {
       <div className="w-screen h-screen flex items-center justify-center p-4">
         <div className="text-center">
           {carIsMine ? (
-            <h1 className="text-white text-6xl font-bold text-center">
-              Ya tenemos carrito!!! 🎉
-            </h1>
+            <>
+              <h1 className="text-white text-6xl font-bold text-center">
+                Ya tenemos carrito!!! 🎉
+              </h1>
+              <div className="pt-8">
+                <div>
+                  <div className="max-w-xl mx-auto rounded-lg overflow-hidden border-4 border-white bg-white">
+                    <Image src={car} alt="A georgeous nissan sentra" />
+                    <div className="p-8">
+                      <h4 className="font-bold">24/09/2021</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
           ) : (
             <>
               <h2 className="text-white text-opacity-75 text-center pb-4">

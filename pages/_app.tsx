@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>Jose Landero</title>
         <link
-          href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700"
+          href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700"
           rel="stylesheet"
         />
       </Head>
